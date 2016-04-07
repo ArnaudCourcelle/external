@@ -1,2 +1,3 @@
 # external
-pure-data externals
+some pure-data externals
+with binaries for macOSX
