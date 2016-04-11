@@ -1,0 +1,92 @@
+#N canvas 534 191 833 608 10;
+#X obj 164 103 gemwin;
+#X msg 182 49 destroy;
+#X obj 33 86 gemhead;
+#X obj 32 174 rotateXYZ 30 30 0;
+#X obj 130 148 counter;
+#X obj 118 118 b;
+#X obj 406 169 gemhead 52;
+#X obj 32 259 color 1 1 0;
+#X msg 129 220 draw line;
+#X msg 495 188 capture \$1;
+#X obj 495 168 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 408 227 ffmpegWrite;
+#X obj 242 229 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 309 404 prepend texture;
+#X msg 355 26 mode viewPort;
+#X msg 356 45 mode texture;
+#X obj 494 125 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 242 316 pix_video;
+#X obj 246 344 pix_rgba;
+#X obj 246 377 pix_texture;
+#X msg 296 247 dialog;
+#X msg 289 222 dimen 1280 720;
+#X msg 165 9 create \, 1 \, frame 60;
+#X msg 494 92 bin /usr/local/bin/ffmpeg;
+#X obj 31 211 pix_texture;
+#X obj 30 288 cube 0.8;
+#X msg 496 34 arg -y -f rawvideo -pix_fmt rgb24 -r 60 -i - -vf hflip
+-an -b:v 1000k;
+#X msg 155 342 rectangle 1;
+#X text 163 -13 1 open your window;
+#X obj 155 310 loadbang;
+#X text 354 6 2 choose mode;
+#X msg 496 310 cmd /usr/local/bin/ffmpeg -y -f rawvideo -s 320x240
+-pix_fmt rgb24 -r 60 -i - -vf vflip -an -b:v 1000k /output.mp4;
+#X text 496 288 3-4 or send command directly and popen;
+#X obj 241 272 gemhead 54;
+#X obj 243 449 spigot;
+#X obj 243 477 square 4;
+#X obj 280 415 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 521 169 5 capture;
+#X text 516 123 4 init;
+#X text 33 540 Arnaud Courcelle 03/2016;
+#X msg 497 379 cmd ffmpeg -i ./tst.mov http://localhost:8090/feed1.ffm
+;
+#X text 34 556 http://ffmpeg.org/documentation.html;
+#X text 495 4 3 change properties (arg \, output \, or ffmpeg binaries
+location);
+#X msg 495 67 output test2.mp4;
+#X text 440 489 default mode = viewPort;
+#X text 440 449 default arg : -y -f rawvideo -pix_fmt rgb24 -r 25 -i
+- -an -b:v 1000k;
+#X text 441 511 when use cmd \, dont use init;
+#X connect 1 0 0 0;
+#X connect 2 0 5 0;
+#X connect 2 0 3 0;
+#X connect 3 0 24 0;
+#X connect 4 0 3 3;
+#X connect 5 0 4 0;
+#X connect 6 0 11 0;
+#X connect 7 0 25 0;
+#X connect 8 0 25 0;
+#X connect 9 0 11 0;
+#X connect 10 0 9 0;
+#X connect 12 0 33 0;
+#X connect 13 0 11 0;
+#X connect 14 0 11 0;
+#X connect 15 0 11 0;
+#X connect 16 0 11 0;
+#X connect 17 0 18 0;
+#X connect 18 0 19 0;
+#X connect 19 0 34 0;
+#X connect 19 1 13 0;
+#X connect 19 1 24 1;
+#X connect 20 0 17 0;
+#X connect 21 0 17 0;
+#X connect 22 0 0 0;
+#X connect 23 0 11 0;
+#X connect 24 0 7 0;
+#X connect 26 0 11 0;
+#X connect 27 0 19 0;
+#X connect 29 0 27 0;
+#X connect 31 0 11 0;
+#X connect 33 0 17 0;
+#X connect 34 0 35 0;
+#X connect 36 0 34 1;
+#X connect 40 0 11 0;
+#X connect 43 0 11 0;
