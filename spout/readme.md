@@ -1,4 +1,4 @@
-Spout external for Gem and window 32 bit
+#Spout external for Gem and window 32 bit
 
 adapted from http://spout.zeal.co/
 
