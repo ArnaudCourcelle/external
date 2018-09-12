@@ -1,0 +1,11 @@
+# Makefile for mylib
+# make clean -f Makefile.pdlibbuilder && make -f Makefile.pdlibbuilder
+
+lib.name = acourcelle
+
+class.sources = nFBO.c
+
+datafiles = nFBO-help.pd
+
+PDLIBBUILDER_DIR=pd-lib-builder/
+include $(PDLIBBUILDER_DIR)/Makefile.pdlibbuilder
