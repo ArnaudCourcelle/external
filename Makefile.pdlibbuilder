@@ -1,0 +1,15 @@
+# Makefile for mylib
+# make clean -f Makefile.pdlibbuilder && make -f Makefile.pdlibbuilder
+
+# Gem Source files
+GEM_DIR=/Users/megrimm/Development/puredata/pd-gem/gem/Src
+
+lib.name = acourcelle
+
+class.sources = nFBO.cpp readPixel.cpp ffmpegWrite.cpp nViewPort.cpp ofGemhead-test/ofGemhead.cpp
+cflags = -I$(GEM_DIR)
+
+datafiles = nFBO-help.pd
+
+PDLIBBUILDER_DIR=pd-lib-builder/
+include $(PDLIBBUILDER_DIR)/Makefile.pdlibbuilder
