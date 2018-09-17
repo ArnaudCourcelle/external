@@ -7,4 +7,4 @@ usage for makefile (osx):
 change your directories, 
 and make src=nViewPort for exemple.
 
---or use the common makefile for other plateform--
+_or use the common makefile for other plateform_
